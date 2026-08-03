@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Painel de Acesso & Servidores</title>
+  <title>PROXY OFICIAL CHUCKY & Servidores</title>
   <style>
     * {
       box-sizing: border-box;
@@ -15,7 +15,7 @@
     html, body {
       width: 100%;
       min-height: 100vh;
-      background-color: #0b0506;
+      background-color: #000000; /* Fundo Totalmente Preto */
       color: #ffffff;
       overflow-x: hidden;
       overflow-y: auto;
@@ -26,19 +26,19 @@
       flex-direction: column;
       align-items: center;
       gap: 24px;
-      padding: 40px 20px 140px; /* Espaço extra no final para os dois botões flutuantes */
+      padding: 40px 20px 140px;
     }
 
     /* Container Principal de Ativação */
     .container {
-      background: #15090b;
-      border: 1px solid #331014;
+      background: #050505;
+      border: 1px solid #7f1d1d;
       border-radius: 18px;
       padding: 32px 24px;
       max-width: 440px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
     }
 
     .banner-img {
@@ -53,10 +53,11 @@
       font-size: 1.5rem;
       margin-bottom: 8px;
       font-weight: 700;
+      color: #ffffff;
     }
 
     p {
-      color: #b5a0a3;
+      color: #d1d5db;
       font-size: 0.95rem;
       margin-bottom: 28px;
       line-height: 1.4;
@@ -83,34 +84,35 @@
       cursor: pointer;
     }
 
-    /* Botão Principal */
+    /* Botão Principal Destaque */
     .btn-primary {
-      background: linear-gradient(135deg, #a3080c, #5c0003);
+      background: linear-gradient(135deg, #dc2626, #991b1b);
       color: #ffffff;
-      box-shadow: 0 4px 15px rgba(163, 8, 12, 0.4);
-      border: 1px solid #c40a0f;
+      box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+      border: 1px solid #ef4444;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      background: linear-gradient(135deg, #b8090e, #730004);
-      box-shadow: 0 6px 20px rgba(163, 8, 12, 0.6);
+      background: linear-gradient(135deg, #ef4444, #b91c1c);
+      box-shadow: 0 6px 20px rgba(220, 38, 38, 0.6);
     }
 
-    /* Botões Secundários */
+    /* Botões Vermelhos Secundários */
     .btn-secondary {
-      background-color: #1f0d10;
-      color: #e1e4ed;
-      border: 1px solid #3d1419;
+      background: #7f1d1d;
+      color: #ffffff;
+      border: 1px solid #991b1b;
     }
 
     .btn-secondary:hover {
-      background-color: #2b1216;
+      background-color: #991b1b;
+      border-color: #dc2626;
       transform: translateY(-2px);
       color: #ffffff;
     }
 
-    /* Player do Vídeo de Tutorial (Miniatura Embend) */
+    /* Player do Vídeo de Tutorial */
     .video-container {
       position: relative;
       width: 100%;
@@ -118,8 +120,8 @@
       height: 0;
       overflow: hidden;
       border-radius: 12px;
-      border: 1px solid #3d1419;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      border: 1px solid #991b1b;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
     }
 
     .video-container iframe {
@@ -134,13 +136,13 @@
     .footer-note {
       margin-top: 24px;
       font-size: 0.8rem;
-      color: #7e6366;
+      color: #9ca3af;
     }
 
     /* Estilos dos Cards de Servidor */
     .card {
-      background-color: #15090b;
-      border: 1px solid #331014;
+      background-color: #050505;
+      border: 1px solid #7f1d1d;
       border-radius: 18px;
       padding: 24px;
       width: 100%;
@@ -148,7 +150,7 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
     }
 
     .card-header {
@@ -190,8 +192,8 @@
     }
 
     .info-box {
-      background-color: #0b0506;
-      border: 1px solid #281013;
+      background-color: #000000;
+      border: 1px solid #450a0a;
       border-radius: 14px;
       padding: 14px 16px;
       display: flex;
@@ -208,7 +210,7 @@
     .info-label {
       font-size: 11px;
       font-weight: 600;
-      color: #8c6a6e;
+      color: #fca5a5;
       letter-spacing: 0.5px;
     }
 
@@ -220,7 +222,7 @@
     }
 
     .info-link {
-      color: #ef4444;
+      color: #f87171;
       text-decoration: none;
       font-weight: 500;
       font-size: 14px;
@@ -231,8 +233,8 @@
     }
 
     .action-btn {
-      background-color: rgba(51, 16, 20, 0.5);
-      border: 1px solid #3d1419;
+      background-color: #7f1d1d;
+      border: 1px solid #991b1b;
       border-radius: 10px;
       width: 38px;
       height: 38px;
@@ -240,13 +242,13 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      color: #f87171;
+      color: #ffffff;
       transition: all 0.2s;
       text-decoration: none;
     }
 
     .action-btn:hover {
-      background-color: #3d1419;
+      background-color: #dc2626;
       color: #ffffff;
     }
 
@@ -257,8 +259,8 @@
     }
 
     .alert-box {
-      background-color: rgba(239, 68, 68, 0.08);
-      border: 1px solid rgba(239, 68, 68, 0.25);
+      background-color: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.4);
       border-radius: 14px;
       padding: 14px 16px;
       display: flex;
@@ -295,7 +297,7 @@
       opacity: 1;
     }
 
-    /* CONTAINER DOS BOTÕES FLUTUANTES DE SUPORTE */
+    /* BOTÕES FLUTUANTES DE SUPORTE */
     .floating-container {
       position: fixed;
       bottom: 24px;
@@ -320,7 +322,6 @@
       transition: all 0.3s ease;
     }
 
-    /* Botão WhatsApp */
     .btn-whatsapp {
       background-color: #25d366;
       box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
@@ -332,7 +333,6 @@
       background-color: #20bd5a;
     }
 
-    /* Botão Discord */
     .btn-discord {
       background-color: #5865f2;
       box-shadow: 0 4px 20px rgba(88, 101, 242, 0.4);
@@ -367,7 +367,7 @@
   <div class="container">
     <img class="banner-img" src="https://media.discordapp.net/attachments/1514665181257404536/1514665226308554883/Captura_de_tela_2026-06-03_121717.png?ex=6a7210eb&is=6a70bf6b&hm=809a6bef2889c84c1f4bac2581f58f59194a3fbb5f8af80b17c3e2f75445653d&=&format=webp&quality=lossless&width=512&height=337" alt="Banner Topo">
 
-    <h1>Painel de Acesso</h1>
+    <h1>PROXY OFICIAL CHUCKY</h1>
     <p>Siga as opções abaixo para consultar seu IP, ativar sua chave de acesso ou baixar o certificado.</p>
 
     <div class="btn-group">
@@ -387,7 +387,7 @@
     <!-- VÍDEO DO TUTORIAL EM MINIATURA -->
     <div class="video-container">
       <iframe 
-        src="https://www.youtube.com/embed/x6ZRcOkDziU" 
+        src="https://www.youtube-nocookie.com/embed/x6ZRcOkDziU" 
         title="Tutorial de Instalação" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
         allowfullscreen>
@@ -529,7 +529,7 @@
     </div>
   </div>
 
-  <!-- BOTÕES FLUTUANTES DE SUPORTE (DISCORD & WHATSAPP) -->
+  <!-- BOTÕES FLUTUANTES DE SUPORTE -->
   <div class="floating-container">
     <a href="https://discord.gg/H76KZwTpja" target="_blank" class="floating-btn btn-discord" title="Comunidade Discord">
       <svg viewBox="0 0 127.14 96.36">
