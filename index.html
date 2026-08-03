@@ -3,29 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Painel de Ativação & Download</title>
+  <title>Painel de Ativação & Servidores</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     body {
       background-color: #0b0506;
       color: #ffffff;
-      min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      padding: 20px;
+      gap: 20px;
+      padding: 40px 20px;
+      min-height: 100vh;
     }
 
+    /* Container Principal de Ativação */
     .container {
       background: #15090b;
       border: 1px solid #331014;
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 32px 24px;
       max-width: 440px;
       width: 100%;
@@ -75,7 +77,7 @@
       cursor: pointer;
     }
 
-    /* Botão Principal em Vermelho Escuro */
+    /* Botão Principal */
     .btn-primary {
       background: linear-gradient(135deg, #a3080c, #5c0003);
       color: #ffffff;
@@ -107,29 +109,182 @@
       font-size: 0.8rem;
       color: #7e6366;
     }
+
+    /* Estilos dos Cards de Servidor */
+    .card {
+      background-color: #15090b;
+      border: 1px solid #331014;
+      border-radius: 18px;
+      padding: 24px;
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot-green {
+      width: 10px;
+      height: 10px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f87171;
+      letter-spacing: 0.8px;
+    }
+
+    .badge-online {
+      background-color: rgba(34, 197, 94, 0.1);
+      color: #22c55e;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .info-box {
+      background-color: #0b0506;
+      border: 1px solid #281013;
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .info-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .info-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #8c6a6e;
+      letter-spacing: 0.5px;
+    }
+
+    .info-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: #f1f5f9;
+      font-family: monospace;
+    }
+
+    .info-link {
+      color: #ef4444;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .info-link:hover {
+      text-decoration: underline;
+    }
+
+    .action-btn {
+      background-color: rgba(51, 16, 20, 0.5);
+      border: 1px solid #3d1419;
+      border-radius: 10px;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #f87171;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .action-btn:hover {
+      background-color: #3d1419;
+      color: #ffffff;
+    }
+
+    .action-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+    }
+
+    .alert-box {
+      background-color: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #f87171;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .alert-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      background: #22c55e;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
 
+  <!-- BANNER E ATIVAÇÃO -->
   <div class="container">
-    <!-- Banner Superior -->
     <img class="banner-img" src="https://media.discordapp.net/attachments/1514665181257404536/1514665226308554883/Captura_de_tela_2026-06-03_121717.png?ex=6a7210eb&is=6a70bf6b&hm=809a6bef2889c84c1f4bac2581f58f59194a3fbb5f8af80b17c3e2f75445653d&=&format=webp&quality=lossless&width=512&height=337" alt="Banner Topo">
 
     <h1>Painel de Acesso</h1>
     <p>Siga as opções abaixo para consultar seu IP, ativar sua chave de acesso ou baixar o certificado.</p>
 
     <div class="btn-group">
-      <!-- Botão para Ativar a Key -->
       <a href="https://t.me/FFPROXYCHEAT_BOT" target="_blank" class="btn btn-primary">
         🔑 ATIVE SUA KEY AQUI !
       </a>
       
-      <!-- Botão para Pegar o IP -->
       <a href="https://meuip.com/" target="_blank" class="btn btn-secondary">
         🌐 VER MEU IP (PARA ATIVAÇÃO)
       </a>
 
-      <!-- Botão para Baixar Certificado -->
       <a href="https://www.mediafire.com/file/ami2lr9n62n8ga9/mitmproxy-ca-cert.pem/file" target="_blank" class="btn btn-secondary">
         📥 Baixar Certificado (mitmproxy)
       </a>
@@ -140,5 +295,153 @@
     </div>
   </div>
 
+  <!-- CARD 1: HS PESCOÇO -->
+  <div class="card">
+    <div class="card-header">
+      <div class="title-group">
+        <span class="dot-green"></span>
+        <span class="title">HS PESCOÇO</span>
+      </div>
+      <span class="badge-online">• ONLINE</span>
+    </div>
+
+    <div class="info-box">
+      <div class="info-content">
+        <span class="info-label">SERVIDOR</span>
+        <span class="info-value" id="ip-1">155.117.40.185</span>
+      </div>
+      <button class="action-btn" onclick="copyToClipboard('ip-1')" title="Copiar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+
+    <div class="info-box">
+      <div class="info-content">
+        <span class="info-label">PORTA</span>
+        <span class="info-value" id="porta-1">10056</span>
+      </div>
+      <button class="action-btn" onclick="copyToClipboard('porta-1')" title="Copiar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- CARD 2: HS PEITO -->
+  <div class="card">
+    <div class="card-header">
+      <div class="title-group">
+        <span class="dot-green"></span>
+        <span class="title">HS PEITO</span>
+      </div>
+      <span class="badge-online">• ONLINE</span>
+    </div>
+
+    <div class="info-box">
+      <div class="info-content">
+        <span class="info-label">SERVIDOR</span>
+        <span class="info-value" id="ip-2">155.117.40.185</span>
+      </div>
+      <button class="action-btn" onclick="copyToClipboard('ip-2')" title="Copiar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+
+    <div class="info-box">
+      <div class="info-content">
+        <span class="info-label">PORTA</span>
+        <span class="info-value" id="porta-2">10057</span>
+      </div>
+      <button class="action-btn" onclick="copyToClipboard('porta-2')" title="Copiar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- CARD 3: HOLOGRAMA DE ARMA -->
+  <div class="card">
+    <div class="card-header">
+      <div class="title-group">
+        <span class="dot-green"></span>
+        <span class="title">HOLOGRAMA DE ARMA</span>
+      </div>
+      <span class="badge-online">• ONLINE</span>
+    </div>
+
+    <div class="info-box">
+      <div class="info-content">
+        <span class="info-label">SERVIDOR</span>
+        <span class="info-value" id="ip-3">69.197.176.242</span>
+      </div>
+      <button class="action-btn" onclick="copyToClipboard('ip-3')" title="Copiar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+
+    <div class="info-box">
+      <div class="info-content">
+        <span class="info-label">PORTA</span>
+        <span class="info-value" id="porta-3">10065</span>
+      </div>
+      <button class="action-btn" onclick="copyToClipboard('porta-3')" title="Copiar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+
+    <div class="info-box">
+      <div class="info-content">
+        <span class="info-label">USUÁRIO</span>
+        <span class="info-value" id="user-3">ARIFI</span>
+      </div>
+      <button class="action-btn" onclick="copyToClipboard('user-3')" title="Copiar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+
+    <div class="info-box">
+      <div class="info-content">
+        <span class="info-label">SENHA</span>
+        <span class="info-value" id="pass-3">ARIFI</span>
+      </div>
+      <button class="action-btn" onclick="copyToClipboard('pass-3')" title="Copiar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+
+    <div class="info-box">
+      <div class="info-content">
+        <span class="info-label">CERTIFICADO</span>
+        <a href="https://www.mediafire.com/file/ll2jrzzqiv4ctjx/mitmproxy-ca-cert.pem/file" target="_blank" class="info-link">
+          Baixar mitmproxy-ca-cert.pem
+        </a>
+      </div>
+      <a href="https://www.mediafire.com/file/ll2jrzzqiv4ctjx/mitmproxy-ca-cert.pem/file" target="_blank" class="action-btn" title="Baixar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+      </a>
+    </div>
+
+    <div class="alert-box">
+      <span class="alert-icon">⚠️</span>
+      <span><strong>ATENÇÃO</strong> — Esta porta utiliza autenticação e certificado exclusivo.</span>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Copiado para a área de transferência!</div>
+
+  <script>
+    function copyToClipboard(elementId) {
+      const textToCopy = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        showToast();
+      });
+    }
+
+    function showToast() {
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
