@@ -15,7 +15,8 @@
     html, body {
       width: 100%;
       min-height: 100vh;
-      background-color: #000000;
+      background: linear-gradient(180deg, #2a0000 0%, #0d0000 40%, #000000 100%);
+      background-attachment: fixed;
       color: #ffffff;
       overflow-x: hidden;
       overflow-y: auto;
@@ -31,14 +32,15 @@
 
     /* Container Principal de Ativação */
     .container {
-      background: #000000;
-      border: none;
+      background: rgba(15, 2, 2, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 0, 0, 0.15);
       border-radius: 18px;
       padding: 32px 24px;
       max-width: 440px;
       width: 100%;
       text-align: center;
-      box-shadow: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     .banner-img {
@@ -82,64 +84,66 @@
       text-decoration: none;
       transition: all 0.15s ease-in-out;
       cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 0, 0, 0.3);
       position: relative;
     }
 
-    /* BOTÃO RED 3D MODERNO - PRINCIPAL */
+    /* BOTÃO RED VIBRANTE/NEON - PRINCIPAL */
     .btn-primary {
-      background: linear-gradient(180deg, #ff3b30 0%, #d70015 100%);
+      background: linear-gradient(180deg, #ff1a1a 0%, #b30000 100%);
       color: #ffffff;
       box-shadow: 
-        0 4px 0 #8b0000, 
-        0 8px 15px rgba(239, 68, 68, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        0 4px 0 #660000, 
+        0 8px 20px rgba(255, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+      border: 1px solid #ff4d4d;
     }
 
     .btn-primary:hover {
-      background: linear-gradient(180deg, #ff453a 0%, #e0001a 100%);
+      background: linear-gradient(180deg, #ff3333 0%, #cc0000 100%);
       box-shadow: 
-        0 4px 0 #8b0000, 
-        0 10px 20px rgba(239, 68, 68, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        0 4px 0 #660000, 
+        0 10px 25px rgba(255, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
       transform: translateY(-2px);
     }
 
     .btn-primary:active {
       transform: translateY(3px);
       box-shadow: 
-        0 1px 0 #8b0000, 
-        0 3px 8px rgba(239, 68, 68, 0.3),
+        0 1px 0 #660000, 
+        0 3px 10px rgba(255, 0, 0, 0.4),
         inset 0 1px 0 rgba(0, 0, 0, 0.2);
     }
 
-    /* BOTÃO RED 3D MODERNO - SECUNDÁRIO */
+    /* BOTÃO RED DARK/NEON - SECUNDÁRIO */
     .btn-secondary {
-      background: linear-gradient(180deg, #2a0808 0%, #170303 100%);
-      color: #ff6b6b;
-      border: 1px solid #7f1d1d;
+      background: linear-gradient(180deg, #330000 0%, #1a0000 100%);
+      color: #ff4d4d;
+      border: 1px solid #990000;
       box-shadow: 
-        0 4px 0 #4a0d0d, 
-        0 6px 12px rgba(0, 0, 0, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 4px 0 #1a0000, 
+        0 6px 14px rgba(255, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 77, 77, 0.2);
     }
 
     .btn-secondary:hover {
-      background: linear-gradient(180deg, #380b0b 0%, #200404 100%);
+      background: linear-gradient(180deg, #4d0000 0%, #260000 100%);
       color: #ffffff;
+      border-color: #ff1a1a;
       box-shadow: 
-        0 4px 0 #4a0d0d, 
-        0 8px 16px rgba(220, 38, 38, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 4px 0 #1a0000, 
+        0 8px 18px rgba(255, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
       transform: translateY(-2px);
     }
 
     .btn-secondary:active {
       transform: translateY(3px);
       box-shadow: 
-        0 1px 0 #4a0d0d, 
-        0 2px 6px rgba(0, 0, 0, 0.4);
+        0 1px 0 #1a0000, 
+        0 2px 6px rgba(0, 0, 0, 0.5);
     }
 
     /* Player do Vídeo de Tutorial */
@@ -150,8 +154,8 @@
       height: 0;
       overflow: hidden;
       border-radius: 12px;
-      border: none;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+      border: 1px solid #4d0000;
+      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
     }
 
     .video-container iframe {
@@ -171,8 +175,9 @@
 
     /* CARDS DE SERVIDOR COM CAIXA E BORDA VERMELHA */
     .card {
-      background-color: #080303;
-      border: 1.5px solid #dc2626;
+      background-color: rgba(8, 3, 3, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid #ff1a1a;
       border-radius: 20px;
       padding: 24px;
       width: 100%;
@@ -180,7 +185,7 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
-      box-shadow: 0 0 20px rgba(220, 38, 38, 0.2);
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
     }
 
     .card-header {
@@ -207,7 +212,7 @@
     .title {
       font-size: 15px;
       font-weight: 800;
-      color: #ff4d4d;
+      color: #ff3333;
       letter-spacing: 0.8px;
     }
 
@@ -222,8 +227,8 @@
     }
 
     .info-box {
-      background-color: #120505;
-      border: 1px solid #2d0a0a;
+      background-color: rgba(18, 5, 5, 0.9);
+      border: 1px solid #330000;
       border-radius: 14px;
       padding: 14px 16px;
       display: flex;
@@ -240,7 +245,7 @@
     .info-label {
       font-size: 11px;
       font-weight: 600;
-      color: #ff8080;
+      color: #ff6666;
       letter-spacing: 0.5px;
     }
 
@@ -252,7 +257,7 @@
     }
 
     .info-link {
-      color: #ff4d4d;
+      color: #ff3333;
       text-decoration: none;
       font-weight: 500;
       font-size: 14px;
@@ -262,10 +267,10 @@
       text-decoration: underline;
     }
 
-    /* BOTÕES DE AÇÃO 3D */
+    /* BOTÕES DE AÇÃO 3D (COPIAR E BAIXAR) */
     .action-btn {
-      background: linear-gradient(180deg, #dc2626 0%, #850f0f 100%);
-      border: none;
+      background: linear-gradient(180deg, #ff1a1a 0%, #800000 100%);
+      border: 1px solid #ff4d4d;
       border-radius: 10px;
       width: 40px;
       height: 40px;
@@ -277,23 +282,23 @@
       transition: all 0.15s ease-in-out;
       text-decoration: none;
       box-shadow: 
-        0 3px 0 #4a0707, 
-        0 4px 8px rgba(0,0,0,0.5),
-        inset 0 1px 0 rgba(255,255,255,0.2);
+        0 3px 0 #4d0000, 
+        0 4px 8px rgba(255, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
 
     .action-btn:hover {
-      background: linear-gradient(180deg, #ef4444 0%, #991b1b 100%);
+      background: linear-gradient(180deg, #ff3333 0%, #990000 100%);
       transform: translateY(-1px);
       box-shadow: 
-        0 3px 0 #4a0707, 
-        0 6px 12px rgba(239, 68, 68, 0.4),
-        inset 0 1px 0 rgba(255,255,255,0.3);
+        0 3px 0 #4d0000, 
+        0 6px 12px rgba(255, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
     }
 
     .action-btn:active {
       transform: translateY(2px);
-      box-shadow: 0 1px 0 #4a0707;
+      box-shadow: 0 1px 0 #4d0000;
     }
 
     .action-btn svg {
@@ -303,14 +308,14 @@
     }
 
     .alert-box {
-      background-color: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.2);
+      background-color: rgba(255, 0, 0, 0.1);
+      border: 1px solid rgba(255, 0, 0, 0.25);
       border-radius: 14px;
       padding: 14px 16px;
       display: flex;
       align-items: center;
       gap: 12px;
-      color: #ff6b6b;
+      color: #ff6666;
       font-size: 13px;
       line-height: 1.4;
     }
