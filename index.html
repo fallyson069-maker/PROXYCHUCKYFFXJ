@@ -4,12 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PROXY OFICIAL CHUCKY & Servidores</title>
+  
+  <!-- FONTE PROFISSIONAL: MONTSERRAT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     html, body {
@@ -30,39 +36,50 @@
       padding: 40px 20px 140px;
     }
 
-    /* Container Principal de Ativação */
+    /* Container Principal de Ativação (SEM CAIXA/BORDA/FUNDO) */
     .container {
-      background: rgba(15, 2, 2, 0.7);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 0, 0, 0.15);
-      border-radius: 18px;
-      padding: 32px 24px;
+      background: transparent;
+      backdrop-filter: none;
+      border: none;
+      padding: 0;
       max-width: 440px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: none;
     }
 
     .banner-img {
       width: 100%;
       max-height: 200px;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 12px;
       margin-bottom: 20px;
     }
 
+    /* TÍTULO VERMELHO COM BORDA PRETA E FONTE ESTILIZADA */
     h1 {
-      font-size: 1.5rem;
-      margin-bottom: 8px;
-      font-weight: 700;
-      color: #ffffff;
+      font-size: 1.55rem;
+      margin-bottom: 10px;
+      font-weight: 900;
+      color: #ff1a1a;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      -webkit-text-stroke: 1.5px #000000;
+      text-shadow: 
+        -1.5px -1.5px 0 #000,  
+         1.5px -1.5px 0 #000,
+        -1.5px  1.5px 0 #000,
+         1.5px  1.5px 0 #000,
+         0 0 12px rgba(0, 0, 0, 0.8);
     }
 
     p {
       color: #d1d5db;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      font-weight: 500;
       margin-bottom: 28px;
-      line-height: 1.4;
+      line-height: 1.5;
+      letter-spacing: 0.2px;
     }
 
     .btn-group {
@@ -79,8 +96,9 @@
       gap: 10px;
       padding: 14px 20px;
       border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.95rem;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
       text-decoration: none;
       transition: all 0.15s ease-in-out;
       cursor: pointer;
@@ -169,7 +187,8 @@
 
     .footer-note {
       margin-top: 24px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
+      font-weight: 500;
       color: #9ca3af;
     }
 
@@ -210,10 +229,10 @@
     }
 
     .title {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 800;
       color: #ff3333;
-      letter-spacing: 0.8px;
+      letter-spacing: 1px;
     }
 
     .badge-online {
@@ -243,24 +262,24 @@
     }
 
     .info-label {
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 10px;
+      font-weight: 700;
       color: #ff6666;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
     }
 
     .info-value {
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 15px;
+      font-weight: 700;
       color: #f1f5f9;
-      font-family: monospace;
+      font-family: 'Consolas', 'Courier New', monospace; /* Mantém mono para os dados/números */
     }
 
     .info-link {
       color: #ff3333;
       text-decoration: none;
-      font-weight: 500;
-      font-size: 14px;
+      font-weight: 600;
+      font-size: 13px;
     }
 
     .info-link:hover {
@@ -316,7 +335,8 @@
       align-items: center;
       gap: 12px;
       color: #ff6666;
-      font-size: 13px;
+      font-size: 12px;
+      font-weight: 500;
       line-height: 1.4;
     }
 
@@ -335,7 +355,8 @@
       color: #fff;
       padding: 10px 20px;
       border-radius: 8px;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 0.85rem;
       opacity: 0;
       transition: opacity 0.3s;
       pointer-events: none;
@@ -365,8 +386,9 @@
       padding: 12px 18px;
       border-radius: 50px;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
       color: #ffffff;
       transition: all 0.15s ease;
     }
@@ -432,7 +454,7 @@
 </head>
 <body>
 
-  <!-- BANNER E ATIVAÇÃO -->
+  <!-- BANNER E ATIVAÇÃO (SEM BORDA / CAIXA) -->
   <div class="container">
     <img class="banner-img" src="https://media.discordapp.net/attachments/1514665181257404536/1514665226308554883/Captura_de_tela_2026-06-03_121717.png?ex=6a7210eb&is=6a70bf6b&hm=809a6bef2889c84c1f4bac2581f58f59194a3fbb5f8af80b17c3e2f75445653d&=&format=webp&quality=lossless&width=512&height=337" alt="Banner Topo">
 
